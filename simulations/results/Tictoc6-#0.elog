@@ -1,0 +1,675 @@
+E # 0 t 0 m 1 ce -1 msg -1
+SB v 1285 rid Tictoc6-0-20200123-12:52:50-4974 b 1000
+KF p -1 c "" s ""
+MC id 1 c omnetpp::cModule t omnetpp_tictoc.Tictoc6 n Tictoc6 cm 1
+MS id 1 d ""
+MC id 2 c Tic6 t omnetpp_tictoc.Tic6 pid 1 n tic
+GC m 2 g 0 n in o 0
+GC m 2 g 3 n out o 1
+MS id 2 d i=block/routing,cyan
+MC id 3 c Toc6 t omnetpp_tictoc.Toc6 pid 1 n toc
+GC m 3 g 0 n in o 0
+GC m 3 g 3 n out o 1
+MS id 3 d i=block/process,gold
+CC sm 2 sg 3 dm 3 dg 0
+CS sm 2 sg 3 d ""
+CC sm 3 sg 3 dm 2 dg 0
+CS sm 3 sg 3 d ""
+MB sm 1 tm 2 m initialize(0)
+CM id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe -1
+- INFO (Tic6)Tictoc6.tic: Sending initial message
+CM id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tictocMsg pe -1
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tictocMsg pe 0
+SH sm 2 sg 3 pd 0.1
+ES t 0.1
+CL id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tictocMsg pe 0 cid 2
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 0
+ES t 1
+ME
+MB sm 1 tm 3 m initialize(0)
+ME
+
+E # 1 t 0.1 m 3 ce 0 msg 1
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tictocMsg pe 1
+SH sm 3 sg 3 pd 0.1
+ES t 0.2
+CL id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tictocMsg pe 1 cid 3
+
+E # 2 t 0.2 m 2 ce 1 msg 1
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 0
+DM id 1 tid 1 eid 1 etid 1 c omnetpp::cMessage n tictocMsg pe 2
+CM id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n tictocMsg pe -1
+BS id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n tictocMsg pe 2
+SH sm 2 sg 3 pd 0.1
+ES t 0.3
+CL id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n tictocMsg pe 2 cid 5
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 2
+ES t 1.2
+
+E # 3 t 0.3 m 3 ce 2 msg 4
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n tictocMsg pe 3
+SH sm 3 sg 3 pd 0.1
+ES t 0.4
+CL id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n tictocMsg pe 3 cid 6
+
+E # 4 t 0.4 m 2 ce 3 msg 4
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 2
+DM id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n tictocMsg pe 4
+CM id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n tictocMsg pe -1
+BS id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n tictocMsg pe 4
+SH sm 2 sg 3 pd 0.1
+ES t 0.5
+CL id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n tictocMsg pe 4 cid 8
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 4
+ES t 1.4
+
+E # 5 t 0.5 m 3 ce 4 msg 7
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n tictocMsg pe 5
+SH sm 3 sg 3 pd 0.1
+ES t 0.6
+CL id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n tictocMsg pe 5 cid 9
+
+E # 6 t 0.6 m 2 ce 5 msg 7
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 4
+DM id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n tictocMsg pe 6
+CM id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n tictocMsg pe -1
+BS id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n tictocMsg pe 6
+SH sm 2 sg 3 pd 0.1
+ES t 0.7
+CL id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n tictocMsg pe 6 cid 11
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 6
+ES t 1.6
+
+E # 7 t 0.7 m 3 ce 6 msg 10
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n tictocMsg pe 7
+SH sm 3 sg 3 pd 0.1
+ES t 0.8
+CL id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n tictocMsg pe 7 cid 12
+
+E # 8 t 0.8 m 2 ce 7 msg 10
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 6
+DM id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n tictocMsg pe 8
+CM id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n tictocMsg pe -1
+BS id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n tictocMsg pe 8
+SH sm 2 sg 3 pd 0.1
+ES t 0.9
+CL id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n tictocMsg pe 8 cid 14
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 8
+ES t 1.8
+
+E # 9 t 0.9 m 3 ce 8 msg 13
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n tictocMsg pe 9
+SH sm 3 sg 3 pd 0.1
+ES t 1
+CL id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n tictocMsg pe 9 cid 15
+
+E # 10 t 1 m 2 ce 9 msg 13
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 8
+DM id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n tictocMsg pe 10
+CM id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n tictocMsg pe -1
+BS id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n tictocMsg pe 10
+SH sm 2 sg 3 pd 0.1
+ES t 1.1
+CL id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n tictocMsg pe 10 cid 17
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 10
+ES t 2
+
+E # 11 t 1.1 m 3 ce 10 msg 16
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n tictocMsg pe 11
+SH sm 3 sg 3 pd 0.1
+ES t 1.2
+CL id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n tictocMsg pe 11 cid 18
+
+E # 12 t 1.2 m 2 ce 11 msg 16
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 10
+DM id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n tictocMsg pe 12
+CM id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n tictocMsg pe -1
+BS id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n tictocMsg pe 12
+SH sm 2 sg 3 pd 0.1
+ES t 1.3
+CL id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n tictocMsg pe 12 cid 20
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 12
+ES t 2.2
+
+E # 13 t 1.3 m 3 ce 12 msg 19
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n tictocMsg pe 13
+SH sm 3 sg 3 pd 0.1
+ES t 1.4
+CL id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n tictocMsg pe 13 cid 21
+
+E # 14 t 1.4 m 2 ce 13 msg 19
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 12
+DM id 19 tid 19 eid 19 etid 19 c omnetpp::cMessage n tictocMsg pe 14
+CM id 22 tid 22 eid 22 etid 22 c omnetpp::cMessage n tictocMsg pe -1
+BS id 22 tid 22 eid 22 etid 22 c omnetpp::cMessage n tictocMsg pe 14
+SH sm 2 sg 3 pd 0.1
+ES t 1.5
+CL id 22 tid 22 eid 22 etid 22 c omnetpp::cMessage n tictocMsg pe 14 cid 23
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 14
+ES t 2.4
+
+E # 15 t 1.5 m 3 ce 14 msg 22
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 22 tid 22 eid 22 etid 22 c omnetpp::cMessage n tictocMsg pe 15
+SH sm 3 sg 3 pd 0.1
+ES t 1.6
+CL id 22 tid 22 eid 22 etid 22 c omnetpp::cMessage n tictocMsg pe 15 cid 24
+
+E # 16 t 1.6 m 2 ce 15 msg 22
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 14
+DM id 22 tid 22 eid 22 etid 22 c omnetpp::cMessage n tictocMsg pe 16
+CM id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n tictocMsg pe -1
+BS id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n tictocMsg pe 16
+SH sm 2 sg 3 pd 0.1
+ES t 1.7
+CL id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n tictocMsg pe 16 cid 26
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 16
+ES t 2.6
+
+E # 17 t 1.7 m 3 ce 16 msg 25
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n tictocMsg pe 17
+SH sm 3 sg 3 pd 0.1
+ES t 1.8
+CL id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n tictocMsg pe 17 cid 27
+
+E # 18 t 1.8 m 2 ce 17 msg 25
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 16
+DM id 25 tid 25 eid 25 etid 25 c omnetpp::cMessage n tictocMsg pe 18
+CM id 28 tid 28 eid 28 etid 28 c omnetpp::cMessage n tictocMsg pe -1
+BS id 28 tid 28 eid 28 etid 28 c omnetpp::cMessage n tictocMsg pe 18
+SH sm 2 sg 3 pd 0.1
+ES t 1.9
+CL id 28 tid 28 eid 28 etid 28 c omnetpp::cMessage n tictocMsg pe 18 cid 29
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 18
+ES t 2.8
+
+E # 19 t 1.9 m 3 ce 18 msg 28
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 28 tid 28 eid 28 etid 28 c omnetpp::cMessage n tictocMsg pe 19
+SH sm 3 sg 3 pd 0.1
+ES t 2
+CL id 28 tid 28 eid 28 etid 28 c omnetpp::cMessage n tictocMsg pe 19 cid 30
+
+E # 20 t 2 m 2 ce 19 msg 28
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 18
+DM id 28 tid 28 eid 28 etid 28 c omnetpp::cMessage n tictocMsg pe 20
+CM id 31 tid 31 eid 31 etid 31 c omnetpp::cMessage n tictocMsg pe -1
+BS id 31 tid 31 eid 31 etid 31 c omnetpp::cMessage n tictocMsg pe 20
+SH sm 2 sg 3 pd 0.1
+ES t 2.1
+CL id 31 tid 31 eid 31 etid 31 c omnetpp::cMessage n tictocMsg pe 20 cid 32
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 20
+ES t 3
+
+E # 21 t 2.1 m 3 ce 20 msg 31
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 31 tid 31 eid 31 etid 31 c omnetpp::cMessage n tictocMsg pe 21
+SH sm 3 sg 3 pd 0.1
+ES t 2.2
+CL id 31 tid 31 eid 31 etid 31 c omnetpp::cMessage n tictocMsg pe 21 cid 33
+
+E # 22 t 2.2 m 2 ce 21 msg 31
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 20
+DM id 31 tid 31 eid 31 etid 31 c omnetpp::cMessage n tictocMsg pe 22
+CM id 34 tid 34 eid 34 etid 34 c omnetpp::cMessage n tictocMsg pe -1
+BS id 34 tid 34 eid 34 etid 34 c omnetpp::cMessage n tictocMsg pe 22
+SH sm 2 sg 3 pd 0.1
+ES t 2.3
+CL id 34 tid 34 eid 34 etid 34 c omnetpp::cMessage n tictocMsg pe 22 cid 35
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 22
+ES t 3.2
+
+E # 23 t 2.3 m 3 ce 22 msg 34
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 34 tid 34 eid 34 etid 34 c omnetpp::cMessage n tictocMsg pe 23
+SH sm 3 sg 3 pd 0.1
+ES t 2.4
+CL id 34 tid 34 eid 34 etid 34 c omnetpp::cMessage n tictocMsg pe 23 cid 36
+
+E # 24 t 2.4 m 2 ce 23 msg 34
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 22
+DM id 34 tid 34 eid 34 etid 34 c omnetpp::cMessage n tictocMsg pe 24
+CM id 37 tid 37 eid 37 etid 37 c omnetpp::cMessage n tictocMsg pe -1
+BS id 37 tid 37 eid 37 etid 37 c omnetpp::cMessage n tictocMsg pe 24
+SH sm 2 sg 3 pd 0.1
+ES t 2.5
+CL id 37 tid 37 eid 37 etid 37 c omnetpp::cMessage n tictocMsg pe 24 cid 38
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 24
+ES t 3.4
+
+E # 25 t 2.5 m 3 ce 24 msg 37
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 37 tid 37 eid 37 etid 37 c omnetpp::cMessage n tictocMsg pe 25
+SH sm 3 sg 3 pd 0.1
+ES t 2.6
+CL id 37 tid 37 eid 37 etid 37 c omnetpp::cMessage n tictocMsg pe 25 cid 39
+
+E # 26 t 2.6 m 2 ce 25 msg 37
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 24
+DM id 37 tid 37 eid 37 etid 37 c omnetpp::cMessage n tictocMsg pe 26
+CM id 40 tid 40 eid 40 etid 40 c omnetpp::cMessage n tictocMsg pe -1
+BS id 40 tid 40 eid 40 etid 40 c omnetpp::cMessage n tictocMsg pe 26
+SH sm 2 sg 3 pd 0.1
+ES t 2.7
+CL id 40 tid 40 eid 40 etid 40 c omnetpp::cMessage n tictocMsg pe 26 cid 41
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 26
+ES t 3.6
+
+E # 27 t 2.7 m 3 ce 26 msg 40
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 40 tid 40 eid 40 etid 40 c omnetpp::cMessage n tictocMsg pe 27
+SH sm 3 sg 3 pd 0.1
+ES t 2.8
+CL id 40 tid 40 eid 40 etid 40 c omnetpp::cMessage n tictocMsg pe 27 cid 42
+
+E # 28 t 2.8 m 2 ce 27 msg 40
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 26
+DM id 40 tid 40 eid 40 etid 40 c omnetpp::cMessage n tictocMsg pe 28
+CM id 43 tid 43 eid 43 etid 43 c omnetpp::cMessage n tictocMsg pe -1
+BS id 43 tid 43 eid 43 etid 43 c omnetpp::cMessage n tictocMsg pe 28
+SH sm 2 sg 3 pd 0.1
+ES t 2.9
+CL id 43 tid 43 eid 43 etid 43 c omnetpp::cMessage n tictocMsg pe 28 cid 44
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 28
+ES t 3.8
+
+E # 29 t 2.9 m 3 ce 28 msg 43
+- INFO (Toc6)Tictoc6.toc: "Losing" message
+BU id 3 txt "message lost"
+DM id 43 tid 43 eid 43 etid 43 c omnetpp::cMessage n tictocMsg pe 29
+
+E # 30 t 3.8 m 2 ce 28 msg 0
+- INFO (Tic6)Tictoc6.tic: Timeout expired, resending message and restarting timer
+CM id 45 tid 45 eid 45 etid 45 c omnetpp::cMessage n tictocMsg pe -1
+BS id 45 tid 45 eid 45 etid 45 c omnetpp::cMessage n tictocMsg pe 30
+SH sm 2 sg 3 pd 0.1
+ES t 3.9
+CL id 45 tid 45 eid 45 etid 45 c omnetpp::cMessage n tictocMsg pe 30 cid 46
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 30
+ES t 4.8
+
+E # 31 t 3.9 m 3 ce 30 msg 45
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 45 tid 45 eid 45 etid 45 c omnetpp::cMessage n tictocMsg pe 31
+SH sm 3 sg 3 pd 0.1
+ES t 4
+CL id 45 tid 45 eid 45 etid 45 c omnetpp::cMessage n tictocMsg pe 31 cid 47
+
+E # 32 t 4 m 2 ce 31 msg 45
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 30
+DM id 45 tid 45 eid 45 etid 45 c omnetpp::cMessage n tictocMsg pe 32
+CM id 48 tid 48 eid 48 etid 48 c omnetpp::cMessage n tictocMsg pe -1
+BS id 48 tid 48 eid 48 etid 48 c omnetpp::cMessage n tictocMsg pe 32
+SH sm 2 sg 3 pd 0.1
+ES t 4.1
+CL id 48 tid 48 eid 48 etid 48 c omnetpp::cMessage n tictocMsg pe 32 cid 49
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 32
+ES t 5
+
+E # 33 t 4.1 m 3 ce 32 msg 48
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 48 tid 48 eid 48 etid 48 c omnetpp::cMessage n tictocMsg pe 33
+SH sm 3 sg 3 pd 0.1
+ES t 4.2
+CL id 48 tid 48 eid 48 etid 48 c omnetpp::cMessage n tictocMsg pe 33 cid 50
+
+E # 34 t 4.2 m 2 ce 33 msg 48
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 32
+DM id 48 tid 48 eid 48 etid 48 c omnetpp::cMessage n tictocMsg pe 34
+CM id 51 tid 51 eid 51 etid 51 c omnetpp::cMessage n tictocMsg pe -1
+BS id 51 tid 51 eid 51 etid 51 c omnetpp::cMessage n tictocMsg pe 34
+SH sm 2 sg 3 pd 0.1
+ES t 4.3
+CL id 51 tid 51 eid 51 etid 51 c omnetpp::cMessage n tictocMsg pe 34 cid 52
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 34
+ES t 5.2
+
+E # 35 t 4.3 m 3 ce 34 msg 51
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 51 tid 51 eid 51 etid 51 c omnetpp::cMessage n tictocMsg pe 35
+SH sm 3 sg 3 pd 0.1
+ES t 4.4
+CL id 51 tid 51 eid 51 etid 51 c omnetpp::cMessage n tictocMsg pe 35 cid 53
+
+E # 36 t 4.4 m 2 ce 35 msg 51
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 34
+DM id 51 tid 51 eid 51 etid 51 c omnetpp::cMessage n tictocMsg pe 36
+CM id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n tictocMsg pe -1
+BS id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n tictocMsg pe 36
+SH sm 2 sg 3 pd 0.1
+ES t 4.5
+CL id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n tictocMsg pe 36 cid 55
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 36
+ES t 5.4
+
+E # 37 t 4.5 m 3 ce 36 msg 54
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n tictocMsg pe 37
+SH sm 3 sg 3 pd 0.1
+ES t 4.6
+CL id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n tictocMsg pe 37 cid 56
+
+E # 38 t 4.6 m 2 ce 37 msg 54
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 36
+DM id 54 tid 54 eid 54 etid 54 c omnetpp::cMessage n tictocMsg pe 38
+CM id 57 tid 57 eid 57 etid 57 c omnetpp::cMessage n tictocMsg pe -1
+BS id 57 tid 57 eid 57 etid 57 c omnetpp::cMessage n tictocMsg pe 38
+SH sm 2 sg 3 pd 0.1
+ES t 4.7
+CL id 57 tid 57 eid 57 etid 57 c omnetpp::cMessage n tictocMsg pe 38 cid 58
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 38
+ES t 5.6
+
+E # 39 t 4.7 m 3 ce 38 msg 57
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 57 tid 57 eid 57 etid 57 c omnetpp::cMessage n tictocMsg pe 39
+SH sm 3 sg 3 pd 0.1
+ES t 4.8
+CL id 57 tid 57 eid 57 etid 57 c omnetpp::cMessage n tictocMsg pe 39 cid 59
+
+E # 40 t 4.8 m 2 ce 39 msg 57
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 38
+DM id 57 tid 57 eid 57 etid 57 c omnetpp::cMessage n tictocMsg pe 40
+CM id 60 tid 60 eid 60 etid 60 c omnetpp::cMessage n tictocMsg pe -1
+BS id 60 tid 60 eid 60 etid 60 c omnetpp::cMessage n tictocMsg pe 40
+SH sm 2 sg 3 pd 0.1
+ES t 4.9
+CL id 60 tid 60 eid 60 etid 60 c omnetpp::cMessage n tictocMsg pe 40 cid 61
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 40
+ES t 5.8
+
+E # 41 t 4.9 m 3 ce 40 msg 60
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 60 tid 60 eid 60 etid 60 c omnetpp::cMessage n tictocMsg pe 41
+SH sm 3 sg 3 pd 0.1
+ES t 5
+CL id 60 tid 60 eid 60 etid 60 c omnetpp::cMessage n tictocMsg pe 41 cid 62
+
+E # 42 t 5 m 2 ce 41 msg 60
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 40
+DM id 60 tid 60 eid 60 etid 60 c omnetpp::cMessage n tictocMsg pe 42
+CM id 63 tid 63 eid 63 etid 63 c omnetpp::cMessage n tictocMsg pe -1
+BS id 63 tid 63 eid 63 etid 63 c omnetpp::cMessage n tictocMsg pe 42
+SH sm 2 sg 3 pd 0.1
+ES t 5.1
+CL id 63 tid 63 eid 63 etid 63 c omnetpp::cMessage n tictocMsg pe 42 cid 64
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 42
+ES t 6
+
+E # 43 t 5.1 m 3 ce 42 msg 63
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 63 tid 63 eid 63 etid 63 c omnetpp::cMessage n tictocMsg pe 43
+SH sm 3 sg 3 pd 0.1
+ES t 5.2
+CL id 63 tid 63 eid 63 etid 63 c omnetpp::cMessage n tictocMsg pe 43 cid 65
+
+E # 44 t 5.2 m 2 ce 43 msg 63
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 42
+DM id 63 tid 63 eid 63 etid 63 c omnetpp::cMessage n tictocMsg pe 44
+CM id 66 tid 66 eid 66 etid 66 c omnetpp::cMessage n tictocMsg pe -1
+BS id 66 tid 66 eid 66 etid 66 c omnetpp::cMessage n tictocMsg pe 44
+SH sm 2 sg 3 pd 0.1
+ES t 5.3
+CL id 66 tid 66 eid 66 etid 66 c omnetpp::cMessage n tictocMsg pe 44 cid 67
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 44
+ES t 6.2
+
+E # 45 t 5.3 m 3 ce 44 msg 66
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 66 tid 66 eid 66 etid 66 c omnetpp::cMessage n tictocMsg pe 45
+SH sm 3 sg 3 pd 0.1
+ES t 5.4
+CL id 66 tid 66 eid 66 etid 66 c omnetpp::cMessage n tictocMsg pe 45 cid 68
+
+E # 46 t 5.4 m 2 ce 45 msg 66
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 44
+DM id 66 tid 66 eid 66 etid 66 c omnetpp::cMessage n tictocMsg pe 46
+CM id 69 tid 69 eid 69 etid 69 c omnetpp::cMessage n tictocMsg pe -1
+BS id 69 tid 69 eid 69 etid 69 c omnetpp::cMessage n tictocMsg pe 46
+SH sm 2 sg 3 pd 0.1
+ES t 5.5
+CL id 69 tid 69 eid 69 etid 69 c omnetpp::cMessage n tictocMsg pe 46 cid 70
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 46
+ES t 6.4
+
+E # 47 t 5.5 m 3 ce 46 msg 69
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 69 tid 69 eid 69 etid 69 c omnetpp::cMessage n tictocMsg pe 47
+SH sm 3 sg 3 pd 0.1
+ES t 5.6
+CL id 69 tid 69 eid 69 etid 69 c omnetpp::cMessage n tictocMsg pe 47 cid 71
+
+E # 48 t 5.6 m 2 ce 47 msg 69
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 46
+DM id 69 tid 69 eid 69 etid 69 c omnetpp::cMessage n tictocMsg pe 48
+CM id 72 tid 72 eid 72 etid 72 c omnetpp::cMessage n tictocMsg pe -1
+BS id 72 tid 72 eid 72 etid 72 c omnetpp::cMessage n tictocMsg pe 48
+SH sm 2 sg 3 pd 0.1
+ES t 5.7
+CL id 72 tid 72 eid 72 etid 72 c omnetpp::cMessage n tictocMsg pe 48 cid 73
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 48
+ES t 6.6
+
+E # 49 t 5.7 m 3 ce 48 msg 72
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 72 tid 72 eid 72 etid 72 c omnetpp::cMessage n tictocMsg pe 49
+SH sm 3 sg 3 pd 0.1
+ES t 5.8
+CL id 72 tid 72 eid 72 etid 72 c omnetpp::cMessage n tictocMsg pe 49 cid 74
+
+E # 50 t 5.8 m 2 ce 49 msg 72
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 48
+DM id 72 tid 72 eid 72 etid 72 c omnetpp::cMessage n tictocMsg pe 50
+CM id 75 tid 75 eid 75 etid 75 c omnetpp::cMessage n tictocMsg pe -1
+BS id 75 tid 75 eid 75 etid 75 c omnetpp::cMessage n tictocMsg pe 50
+SH sm 2 sg 3 pd 0.1
+ES t 5.9
+CL id 75 tid 75 eid 75 etid 75 c omnetpp::cMessage n tictocMsg pe 50 cid 76
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 50
+ES t 6.8
+
+E # 51 t 5.9 m 3 ce 50 msg 75
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 75 tid 75 eid 75 etid 75 c omnetpp::cMessage n tictocMsg pe 51
+SH sm 3 sg 3 pd 0.1
+ES t 6
+CL id 75 tid 75 eid 75 etid 75 c omnetpp::cMessage n tictocMsg pe 51 cid 77
+
+E # 52 t 6 m 2 ce 51 msg 75
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 50
+DM id 75 tid 75 eid 75 etid 75 c omnetpp::cMessage n tictocMsg pe 52
+CM id 78 tid 78 eid 78 etid 78 c omnetpp::cMessage n tictocMsg pe -1
+BS id 78 tid 78 eid 78 etid 78 c omnetpp::cMessage n tictocMsg pe 52
+SH sm 2 sg 3 pd 0.1
+ES t 6.1
+CL id 78 tid 78 eid 78 etid 78 c omnetpp::cMessage n tictocMsg pe 52 cid 79
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 52
+ES t 7
+
+E # 53 t 6.1 m 3 ce 52 msg 78
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 78 tid 78 eid 78 etid 78 c omnetpp::cMessage n tictocMsg pe 53
+SH sm 3 sg 3 pd 0.1
+ES t 6.2
+CL id 78 tid 78 eid 78 etid 78 c omnetpp::cMessage n tictocMsg pe 53 cid 80
+
+E # 54 t 6.2 m 2 ce 53 msg 78
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 52
+DM id 78 tid 78 eid 78 etid 78 c omnetpp::cMessage n tictocMsg pe 54
+CM id 81 tid 81 eid 81 etid 81 c omnetpp::cMessage n tictocMsg pe -1
+BS id 81 tid 81 eid 81 etid 81 c omnetpp::cMessage n tictocMsg pe 54
+SH sm 2 sg 3 pd 0.1
+ES t 6.3
+CL id 81 tid 81 eid 81 etid 81 c omnetpp::cMessage n tictocMsg pe 54 cid 82
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 54
+ES t 7.2
+
+E # 55 t 6.3 m 3 ce 54 msg 81
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 81 tid 81 eid 81 etid 81 c omnetpp::cMessage n tictocMsg pe 55
+SH sm 3 sg 3 pd 0.1
+ES t 6.4
+CL id 81 tid 81 eid 81 etid 81 c omnetpp::cMessage n tictocMsg pe 55 cid 83
+
+E # 56 t 6.4 m 2 ce 55 msg 81
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 54
+DM id 81 tid 81 eid 81 etid 81 c omnetpp::cMessage n tictocMsg pe 56
+CM id 84 tid 84 eid 84 etid 84 c omnetpp::cMessage n tictocMsg pe -1
+BS id 84 tid 84 eid 84 etid 84 c omnetpp::cMessage n tictocMsg pe 56
+SH sm 2 sg 3 pd 0.1
+ES t 6.5
+CL id 84 tid 84 eid 84 etid 84 c omnetpp::cMessage n tictocMsg pe 56 cid 85
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 56
+ES t 7.4
+
+E # 57 t 6.5 m 3 ce 56 msg 84
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 84 tid 84 eid 84 etid 84 c omnetpp::cMessage n tictocMsg pe 57
+SH sm 3 sg 3 pd 0.1
+ES t 6.6
+CL id 84 tid 84 eid 84 etid 84 c omnetpp::cMessage n tictocMsg pe 57 cid 86
+
+E # 58 t 6.6 m 2 ce 57 msg 84
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 56
+DM id 84 tid 84 eid 84 etid 84 c omnetpp::cMessage n tictocMsg pe 58
+CM id 87 tid 87 eid 87 etid 87 c omnetpp::cMessage n tictocMsg pe -1
+BS id 87 tid 87 eid 87 etid 87 c omnetpp::cMessage n tictocMsg pe 58
+SH sm 2 sg 3 pd 0.1
+ES t 6.7
+CL id 87 tid 87 eid 87 etid 87 c omnetpp::cMessage n tictocMsg pe 58 cid 88
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 58
+ES t 7.6
+
+E # 59 t 6.7 m 3 ce 58 msg 87
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 87 tid 87 eid 87 etid 87 c omnetpp::cMessage n tictocMsg pe 59
+SH sm 3 sg 3 pd 0.1
+ES t 6.8
+CL id 87 tid 87 eid 87 etid 87 c omnetpp::cMessage n tictocMsg pe 59 cid 89
+
+E # 60 t 6.8 m 2 ce 59 msg 87
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 58
+DM id 87 tid 87 eid 87 etid 87 c omnetpp::cMessage n tictocMsg pe 60
+CM id 90 tid 90 eid 90 etid 90 c omnetpp::cMessage n tictocMsg pe -1
+BS id 90 tid 90 eid 90 etid 90 c omnetpp::cMessage n tictocMsg pe 60
+SH sm 2 sg 3 pd 0.1
+ES t 6.9
+CL id 90 tid 90 eid 90 etid 90 c omnetpp::cMessage n tictocMsg pe 60 cid 91
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 60
+ES t 7.8
+
+E # 61 t 6.9 m 3 ce 60 msg 90
+- INFO (Toc6)Tictoc6.toc: "Losing" message
+BU id 3 txt "message lost"
+DM id 90 tid 90 eid 90 etid 90 c omnetpp::cMessage n tictocMsg pe 61
+
+E # 62 t 7.8 m 2 ce 60 msg 0
+- INFO (Tic6)Tictoc6.tic: Timeout expired, resending message and restarting timer
+CM id 92 tid 92 eid 92 etid 92 c omnetpp::cMessage n tictocMsg pe -1
+BS id 92 tid 92 eid 92 etid 92 c omnetpp::cMessage n tictocMsg pe 62
+SH sm 2 sg 3 pd 0.1
+ES t 7.9
+CL id 92 tid 92 eid 92 etid 92 c omnetpp::cMessage n tictocMsg pe 62 cid 93
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 62
+ES t 8.8
+
+E # 63 t 7.9 m 3 ce 62 msg 92
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 92 tid 92 eid 92 etid 92 c omnetpp::cMessage n tictocMsg pe 63
+SH sm 3 sg 3 pd 0.1
+ES t 8
+CL id 92 tid 92 eid 92 etid 92 c omnetpp::cMessage n tictocMsg pe 63 cid 94
+
+E # 64 t 8 m 2 ce 63 msg 92
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 62
+DM id 92 tid 92 eid 92 etid 92 c omnetpp::cMessage n tictocMsg pe 64
+CM id 95 tid 95 eid 95 etid 95 c omnetpp::cMessage n tictocMsg pe -1
+BS id 95 tid 95 eid 95 etid 95 c omnetpp::cMessage n tictocMsg pe 64
+SH sm 2 sg 3 pd 0.1
+ES t 8.1
+CL id 95 tid 95 eid 95 etid 95 c omnetpp::cMessage n tictocMsg pe 64 cid 96
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 64
+ES t 9
+
+E # 65 t 8.1 m 3 ce 64 msg 95
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 95 tid 95 eid 95 etid 95 c omnetpp::cMessage n tictocMsg pe 65
+SH sm 3 sg 3 pd 0.1
+ES t 8.2
+CL id 95 tid 95 eid 95 etid 95 c omnetpp::cMessage n tictocMsg pe 65 cid 97
+
+E # 66 t 8.2 m 2 ce 65 msg 95
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 64
+DM id 95 tid 95 eid 95 etid 95 c omnetpp::cMessage n tictocMsg pe 66
+CM id 98 tid 98 eid 98 etid 98 c omnetpp::cMessage n tictocMsg pe -1
+BS id 98 tid 98 eid 98 etid 98 c omnetpp::cMessage n tictocMsg pe 66
+SH sm 2 sg 3 pd 0.1
+ES t 8.3
+CL id 98 tid 98 eid 98 etid 98 c omnetpp::cMessage n tictocMsg pe 66 cid 99
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 66
+ES t 9.2
+
+E # 67 t 8.3 m 3 ce 66 msg 98
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 98 tid 98 eid 98 etid 98 c omnetpp::cMessage n tictocMsg pe 67
+SH sm 3 sg 3 pd 0.1
+ES t 8.4
+CL id 98 tid 98 eid 98 etid 98 c omnetpp::cMessage n tictocMsg pe 67 cid 100
+
+E # 68 t 8.4 m 2 ce 67 msg 98
+- INFO (Tic6)Tictoc6.tic: Timer cancelled.
+CE id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 66
+DM id 98 tid 98 eid 98 etid 98 c omnetpp::cMessage n tictocMsg pe 68
+CM id 101 tid 101 eid 101 etid 101 c omnetpp::cMessage n tictocMsg pe -1
+BS id 101 tid 101 eid 101 etid 101 c omnetpp::cMessage n tictocMsg pe 68
+SH sm 2 sg 3 pd 0.1
+ES t 8.5
+CL id 101 tid 101 eid 101 etid 101 c omnetpp::cMessage n tictocMsg pe 68 cid 102
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n timeoutEvent pe 68
+ES t 9.4
+
+E # 69 t 8.5 m 3 ce 68 msg 101
+- INFO (Toc6)Tictoc6.toc: Sending back same message as acknowledgement
+BS id 101 tid 101 eid 101 etid 101 c omnetpp::cMessage n tictocMsg pe 69
+SH sm 3 sg 3 pd 0.1
+ES t 8.6
+CL id 101 tid 101 eid 101 etid 101 c omnetpp::cMessage n tictocMsg pe 69 cid 103

@@ -1,13 +1,13 @@
 E # 0 t 0 m 1 ce -1 msg -1
-SB v 1285 rid Tictoc2-0-20200123-12:50:57-4824 b 1000
+SB v 1285 rid Tictoc4-0-20200123-12:51:48-4902 b 1000
 KF p -1 c "" s ""
-MC id 1 c omnetpp::cModule t omnetpp_tictoc.Tictoc2 n Tictoc2 cm 1
+MC id 1 c omnetpp::cModule t omnetpp_tictoc.Tictoc4 n Tictoc4 cm 1
 MS id 1 d ""
-MC id 2 c Txc2 t omnetpp_tictoc.Txc2 pid 1 n tic
+MC id 2 c Txc4 t omnetpp_tictoc.Tic4 pid 1 n tic
 GC m 2 g 0 n in o 0
 GC m 2 g 3 n out o 1
 MS id 2 d i=block/routing,cyan
-MC id 3 c Txc2 t omnetpp_tictoc.Txc2 pid 1 n toc
+MC id 3 c Txc4 t omnetpp_tictoc.Toc4 pid 1 n toc
 GC m 3 g 0 n in o 0
 GC m 3 g 3 n out o 1
 MS id 3 d i=block/routing,gold
@@ -16,7 +16,7 @@ CS sm 2 sg 3 d ""
 CC sm 3 sg 3 dm 2 dg 0
 CS sm 3 sg 3 d ""
 MB sm 1 tm 2 m initialize(0)
-- INFO (Txc2)Tictoc2.tic: Sending initial message
+- INFO (Tic4)Tictoc4.tic: Sending initial message
 CM id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe -1
 BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 0
 SH sm 2 sg 3 pd 0.1
@@ -27,64 +27,62 @@ MB sm 1 tm 3 m initialize(0)
 ME
 
 E # 1 t 0.1 m 3 ce 0 msg 0
-- INFO (Txc2)Tictoc2.toc: toc's counter is 9`, sending back message
+- INFO (Toc4)Tictoc4.toc: toc's counter is 4`, sending back message
 BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 1
 SH sm 3 sg 3 pd 0.1
 ES t 0.2
 CL id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 1 cid 2
 
 E # 2 t 0.2 m 2 ce 1 msg 0
-- INFO (Txc2)Tictoc2.tic: tic's counter is 9`, sending back message
+- INFO (Tic4)Tictoc4.tic: tic's counter is 4`, sending back message
 BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 2
 SH sm 2 sg 3 pd 0.1
 ES t 0.3
 CL id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 2 cid 3
 
 E # 3 t 0.3 m 3 ce 2 msg 0
-- INFO (Txc2)Tictoc2.toc: toc's counter is 8`, sending back message
+- INFO (Toc4)Tictoc4.toc: toc's counter is 3`, sending back message
 BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 3
 SH sm 3 sg 3 pd 0.1
 ES t 0.4
 CL id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 3 cid 4
 
 E # 4 t 0.4 m 2 ce 3 msg 0
-- INFO (Txc2)Tictoc2.tic: tic's counter is 8`, sending back message
+- INFO (Tic4)Tictoc4.tic: tic's counter is 3`, sending back message
 BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 4
 SH sm 2 sg 3 pd 0.1
 ES t 0.5
 CL id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 4 cid 5
 
 E # 5 t 0.5 m 3 ce 4 msg 0
-- INFO (Txc2)Tictoc2.toc: toc's counter is 7`, sending back message
+- INFO (Toc4)Tictoc4.toc: toc's counter is 2`, sending back message
 BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 5
 SH sm 3 sg 3 pd 0.1
 ES t 0.6
 CL id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 5 cid 6
 
 E # 6 t 0.6 m 2 ce 5 msg 0
-- INFO (Txc2)Tictoc2.tic: tic's counter is 7`, sending back message
+- INFO (Tic4)Tictoc4.tic: tic's counter is 2`, sending back message
 BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 6
 SH sm 2 sg 3 pd 0.1
 ES t 0.7
 CL id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 6 cid 7
 
 E # 7 t 0.7 m 3 ce 6 msg 0
-- INFO (Txc2)Tictoc2.toc: toc's counter is 6`, sending back message
+- INFO (Toc4)Tictoc4.toc: toc's counter is 1`, sending back message
 BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 7
 SH sm 3 sg 3 pd 0.1
 ES t 0.8
 CL id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 7 cid 8
 
 E # 8 t 0.8 m 2 ce 7 msg 0
-- INFO (Txc2)Tictoc2.tic: tic's counter is 6`, sending back message
+- INFO (Tic4)Tictoc4.tic: tic's counter is 1`, sending back message
 BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 8
 SH sm 2 sg 3 pd 0.1
 ES t 0.9
 CL id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 8 cid 9
 
 E # 9 t 0.9 m 3 ce 8 msg 0
-- INFO (Txc2)Tictoc2.toc: toc's counter is 5`, sending back message
-BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 9
-SH sm 3 sg 3 pd 0.1
-ES t 1
-CL id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 9 cid 10
+- INFO (Toc4)Tictoc4.toc: toc's counter reached 0, deleting message
+DM id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictoc2 pe 9
+SE e 0 c 13 m "No more events, simulation completed -- at t=0.9s, event #9"

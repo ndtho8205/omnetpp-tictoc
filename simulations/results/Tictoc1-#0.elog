@@ -1,5 +1,5 @@
 E # 0 t 0 m 1 ce -1 msg -1
-SB v 1285 rid Tictoc1-0-20200123-12:40:18-4321 b 1000
+SB v 1285 rid Tictoc1-0-20200123-12:50:34-4788 b 1000
 KF p -1 c "" s ""
 MC id 1 c omnetpp::cModule t omnetpp_tictoc.Tictoc1 n Tictoc1 cm 1
 MS id 1 d ""
@@ -54,3 +54,9 @@ BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictocMsg pe 5
 SH sm 3 sg 3 pd 0.1
 ES t 0.6
 CL id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictocMsg pe 5 cid 6
+
+E # 6 t 0.6 m 2 ce 5 msg 0
+BS id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictocMsg pe 6
+SH sm 2 sg 3 pd 0.1
+ES t 0.7
+CL id 0 tid 0 eid 0 etid 0 c omnetpp::cMessage n tictocMsg pe 6 cid 7
